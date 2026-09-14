@@ -1,0 +1,32 @@
+[
+  {
+    "name": "West End Management &amp; Leasing",
+    "snapshots": [
+      { "date": "2026-09-14", "rating": 4.4, "reviewCount": 262, "socialFollowers": 195, "activeAdCount": 0 }
+    ]
+  },
+  {
+    "name": "Deca Property Management",
+    "snapshots": [
+      { "date": "2026-09-14", "rating": 4.3, "reviewCount": 788, "socialFollowers": null, "activeAdCount": 10 }
+    ]
+  },
+  {
+    "name": "Eaton Properties",
+    "snapshots": [
+      { "date": "2026-09-14", "rating": null, "reviewCount": null, "socialFollowers": null, "activeAdCount": 0 }
+    ]
+  },
+  {
+    "name": "Homestretch Property Management",
+    "snapshots": [
+      { "date": "2026-09-14", "rating": 4.5, "reviewCount": 362, "socialFollowers": null, "activeAdCount": null }
+    ]
+  },
+  {
+    "name": "Evernest (national)",
+    "snapshots": [
+      { "date": "2026-09-14", "rating": null, "reviewCount": null, "socialFollowers": null, "activeAdCount": null }
+    ]
+  }
+]

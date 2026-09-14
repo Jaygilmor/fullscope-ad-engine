@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Full Scope Ad Engine</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
@@ -102,9 +107,14 @@
   .landscape{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 22px; margin-bottom:30px; }
   .landscape h3{ margin:0 0 4px; font-size:1rem; }
   .landscape .cap{ font-size:0.8rem; opacity:0.6; margin:0 0 16px; }
-  .lrow{ display:grid; grid-template-columns:180px 1fr 1fr; gap:10px; align-items:center; padding:9px 0; border-top:1px solid var(--line); font-size:0.86rem; }
+  .lrow{ display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr 1fr; gap:10px; align-items:center; padding:9px 0; border-top:1px solid var(--line); font-size:0.86rem; }
   .lrow:first-of-type{ border-top:none; }
+  .lrow-head{ opacity:0.55; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.04em; font-weight:700; }
   .lrow .name{ font-weight:600; }
+  .lrow .metric{ font-variant-numeric:tabular-nums; }
+  .lrow .metric small{ opacity:0.55; font-weight:400; }
+  .lrow .muted{ opacity:0.4; }
+  @media (max-width: 700px){ .landscape{ overflow-x:auto; } .lrow{ grid-template-columns:140px repeat(4,90px); width:max-content; min-width:100%; } }
   .pill{ display:inline-flex; align-items:center; gap:5px; font-size:0.76rem; font-weight:600; padding:3px 9px; border-radius:100px; width:fit-content; }
   .pill.good{ background:var(--good-bg); color:var(--good); }
   .pill.bad{ background:var(--bad-bg); color:var(--bad); }
@@ -195,6 +205,8 @@
     .idea-actions{ flex-direction:row; }
   }
 </style>
+</head>
+<body>
 
 <canvas id="starfield"></canvas>
 <div class="app">
@@ -224,15 +236,11 @@
 
       <div class="landscape">
         <h3>Competitive landscape at a glance</h3>
-        <p class="cap">Based on each company's own site and a live Meta Ad Library check on Sep 11, 2026.</p>
-        <div class="lrow" style="opacity:.55;font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;font-weight:700;">
-          <div>Company</div><div>Trust guarantee offered</div><div>Running landlord-acquisition ads</div>
+        <p class="cap" id="landscape-cap">Based on each company's own site, Google reviews, and a live Meta Ad Library check.</p>
+        <div class="lrow lrow-head">
+          <div>Company</div><div>Rating</div><div>FB followers</div><div>Active ads</div><div>Guarantees</div>
         </div>
-        <div class="lrow"><div class="name">West End Mgmt &amp; Leasing</div><div><span class="pill good">5 guarantees</span></div><div><span class="pill bad">No active ads found</span></div></div>
-        <div class="lrow"><div class="name">Deca Property Mgmt</div><div><span class="pill good">3 guarantees</span></div><div><span class="pill warn">Ads active — tenants only</span></div></div>
-        <div class="lrow"><div class="name">Eaton Properties</div><div><span class="pill neutral">None advertised</span></div><div><span class="pill bad">No active ads found</span></div></div>
-        <div class="lrow"><div class="name">Homestretch PM</div><div><span class="pill neutral">None advertised</span></div><div><span class="pill neutral">Not checked yet</span></div></div>
-        <div class="lrow"><div class="name">Evernest (national)</div><div><span class="pill good">3 guarantees</span></div><div><span class="pill neutral">Inconclusive — common name</span></div></div>
+        <div id="landscape-rows"></div>
       </div>
 
       <div class="callout" style="border-left-color:var(--warn);">
@@ -388,16 +396,51 @@ function showSection(id){
   active.classList.add('enter');
 }
 
+function metricChip(label, value){
+  return `<span class="tag">${label}: ${value===null||value===undefined ? '<span class="muted">—</span>' : value}</span>`;
+}
+
 function renderCompetitors(){
-  document.getElementById('competitor-grid').innerHTML = COMPETITORS.map(c => `
+  document.getElementById('competitor-grid').innerHTML = COMPETITORS.map(c => {
+    const m = c.metrics || {};
+    const ratingStr = m.rating ? `★ ${m.rating}${m.reviewCount ? ` <small style="opacity:.6">(${m.reviewCount})</small>` : ''}` : null;
+    return `
     <div class="card">
       <h3>${c.name}</h3>
       <div class="tags">${c.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+      <div class="tags">
+        ${metricChip('Rating', ratingStr)}
+        ${metricChip('FB followers', m.socialFollowers)}
+        ${metricChip('Active ads', m.activeAdCount)}
+      </div>
       <div class="body">${c.body}</div>
       <div class="body" style="opacity:.75;font-size:.83rem;">${c.extra}</div>
       <div class="body" style="font-size:.83rem;"><strong>Ads:</strong> ${c.ads}</div>
-      <div class="src">Source: <a href="${c.srcUrl}" target="_blank" rel="noopener">${c.src}</a></div>
-    </div>`).join('');
+      <div class="src">Source: <a href="${c.srcUrl}" target="_blank" rel="noopener">${c.src}</a>${m.lastChecked ? ` · metrics checked ${m.lastChecked}` : ''}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderLandscape(){
+  document.getElementById('landscape-cap').textContent =
+    `Based on each company's own site, Google reviews, and a live Meta Ad Library check. Last refreshed ${META.lastUpdated || '—'}.`;
+  document.getElementById('landscape-rows').innerHTML = COMPETITORS.map(c => {
+    const m = c.metrics || {};
+    const shortName = c.name.replace('&amp;', '&').replace(' Management', ' Mgmt').replace(' Property', '');
+    const adPill = m.activeAdCount === null || m.activeAdCount === undefined
+      ? '<span class="pill neutral">Not checked</span>'
+      : m.activeAdCount === 0
+        ? '<span class="pill bad">0 active</span>'
+        : `<span class="pill warn">${m.activeAdCount} active</span>`;
+    return `
+    <div class="lrow">
+      <div class="name">${shortName}</div>
+      <div class="metric">${m.rating ? `★ ${m.rating} <small>(${m.reviewCount ?? '—'})</small>` : '<span class="muted">—</span>'}</div>
+      <div class="metric">${m.socialFollowers ?? '<span class="muted">—</span>'}</div>
+      <div>${adPill}</div>
+      <div><span class="pill ${c.guaranteeCount > 0 ? 'good' : 'neutral'}">${c.guaranteeCount > 0 ? c.guaranteeCount + ' guarantees' : 'None'}</span></div>
+    </div>`;
+  }).join('');
 }
 
 function ideaStatusBtn(id, kind){
@@ -554,6 +597,7 @@ async function init(){
   applyMeta();
   renderStats();
   renderCompetitors();
+  renderLandscape();
   renderIdeas();
 
   try{
@@ -578,3 +622,5 @@ async function init(){
 }
 init();
 </script>
+</body>
+</html>

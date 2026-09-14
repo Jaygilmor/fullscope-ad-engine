@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-09-11",
+  "lastUpdated": "2026-09-14",
   "localAdsRatio": "1 / 4",
   "localAdsLabel": "Local competitors running any Meta ads",
   "phase": 1,
   "phaseLabel": "Phase 1 of 4",
   "liveCampaigns": 0,
   "liveCampaignsLabel": "Live campaigns — accounts not set up yet",
-  "notes": "Weekly automated research/draft refresh will update this file and the accompanying competitors.json / ideas.json. Manual edits here are fine between runs."
+  "notes": "Added real analytics per competitor: Google rating/review count, Facebook followers, active ad count, plus a history file to track trends over time. West End 4.4★/262 reviews, Deca 4.3★/788 reviews (10 active ads, all tenant-facing listings), Homestretch 4.5★/362 reviews. Eaton and Evernest's ratings/followers weren't cleanly verifiable this pass (name collisions in search) — left as null rather than guessed."
 }

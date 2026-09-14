@@ -202,10 +202,10 @@
     <div class="brand">
       <div class="word">Full Scope Ad Engine</div>
       <div class="sub">Landlord-acquisition marketing</div>
-      <div class="phase-pill">● Phase 1 of 4</div>
+      <div class="phase-pill" id="phase-pill">● Phase 1 of 4</div>
     </div>
     <nav id="nav"></nav>
-    <div class="sidebar-foot">Full Scope Home Services · St. Louis, MO<br>Research current as of Sep 11, 2026</div>
+    <div class="sidebar-foot" id="sidebar-foot">Full Scope Home Services · St. Louis, MO<br>Research current as of Sep 11, 2026</div>
   </aside>
 
   <main>
@@ -316,63 +316,9 @@ const NAV = [
   {id:'accounts', label:'Accounts', icon:'M12 15a3 3 0 100-6 3 3 0 000 6zM4 12a8 8 0 1116 0 8 8 0 01-16 0z'},
 ];
 
-const COMPETITORS = [
-  {name:'West End Management &amp; Leasing', tags:['20+ yrs','St. Louis &amp; St. Charles'],
-    body:'"One of the largest" PM companies in the metro. Pays-on-performance model (no fee until a tenant is approved). Leans hard on trust guarantees rather than price.',
-    extra:'5 guarantees: Stress-Free Rent Pledge ($1,000 eviction cost coverage), Pet Damage Coverage, Price Match, Happiness Guarantee (cancel anytime), Fee Transparency Pledge.',
-    ads:'No active Meta ads found (checked Sep 11, 2026).', src:'westendmgt.com', srcUrl:'https://www.westendmgt.com/'},
-  {name:'Deca Property Management', tags:['35 yrs','A+ BBB'],
-    body:'Dedicated team per owner (manager + assistant + field rep) and an in-house maintenance division ("Aced Maintenance"). Positions on scale and personal service at once.',
-    extra:'3 guarantees: Lease Time Promise, Pet Damage Promise, Eviction Promise.',
-    ads:'Actively running ~10 Meta/Instagram ads — every one is a vacant rental listing aimed at tenants. Zero landlord-acquisition ads.', src:'decarealty.com + Meta Ad Library', srcUrl:'https://www.decarealty.com/'},
-  {name:'Eaton Properties', tags:['Decades in STL/St. Charles','98% occupancy claim'],
-    body:'Tech-forward positioning: web portal for owners/tenants, electronic payments, online work orders. Frames the pitch as turning ownership into "passive income."',
-    extra:'No guarantee advertised. A Yelp review describes a months-long unresolved ceiling leak/water damage — directly at odds with the fast-response positioning.',
-    ads:'No active Meta ads found under the business name (checked Sep 11, 2026).', src:'eatonproperties.com + Yelp', srcUrl:'https://www.eatonproperties.com/st-louis-property-management'},
-  {name:'Homestretch Property Management', tags:['Flat-rate fees','Single point of contact']},
-];
-COMPETITORS[3].body = 'Pitches a flat-rate, "no surprise fees" structure and a single dedicated local manager as the point of contact. Lists on 30+ platforms for faster leasing.';
-COMPETITORS[3].extra = 'No guarantee advertised. Offers a free rental analysis as their lead magnet — same convention Full Scope already uses.';
-COMPETITORS[3].ads = 'Not checked yet in this pass — worth a follow-up.';
-COMPETITORS[3].src = 'homestretchpropertymanagement.com';
-COMPETITORS[3].srcUrl = 'https://homestretchpropertymanagement.com/';
-COMPETITORS.push({name:'Evernest (national)', tags:['National roll-up','Acquiring local PM firms'],
-  body:'"National Brand, Local People." A large, VC-backed national property management company actively acquiring independent local firms across the U.S. — a consolidation trend worth knowing about beyond just its ads.',
-  extra:'3 guarantees: Maintenance Guarantee, Resident Eviction Guarantee (free re-lease), 100% Happiness Guarantee.',
-  ads:'Ad Library search inconclusive — name collides with unrelated companies. Not conclusively checked.', src:'stlouispropertymanagement.co (Evernest STL)', srcUrl:'https://www.stlouispropertymanagement.co/'});
-
-const IDEAS = [
-  {id:'responsive', headline:'Still Waiting on a Call Back From Your Property Manager?',
-    body:'Full Scope Home Services answers — that\'s the whole pitch. Real people, real updates on repairs and applications, without you having to chase anyone down. Free rental analysis, no obligation.',
-    cta:'Get My Free Rental Analysis', platform:'Facebook + Instagram', audience:'Owners currently frustrated with their existing property manager',
-    creative:'Photo of the actual local manager (e.g. Brandon) mid-call, or a clean text graphic built around Scott W.\'s review.',
-    grounding:'Scott W.\'s testimonial contrasts Full Scope directly with an "impersonal" prior manager — this is close to a direct quote.',
-    mockA:'var(--accent)', mockB:'var(--deep)'},
-  {id:'free-analysis', headline:'What Could Your Rental Actually Be Earning?',
-    body:'Get a free, no-pressure rental analysis from a local St. Louis property manager. Find out what your property could rent for — and what it\'s really costing you to manage it yourself.',
-    cta:'Get My Free Analysis', platform:'Facebook + Instagram, broad owner-interest targeting', audience:'Self-managing landlords and owners comparing PM companies',
-    creative:'Clean exterior photo of a well-kept St. Louis-area rental, or a simple calculator/clipboard graphic.',
-    grounding:'Matches the "Free Rental Analysis" CTA already live on fullscopehomes.com — the category-standard offer, confirmed by 4 of the 5 competitors researched.',
-    mockA:'var(--brass)', mockB:'var(--deep)'},
-  {id:'maintenance-cost', headline:'Your Property Manager Shouldn\'t Be a Profit Center for Contractors',
-    body:'One owner told us her maintenance estimates dropped significantly the day she switched to us. We manage repairs like it\'s our own money — because keeping your property profitable is the actual job.',
-    cta:'See How We Manage Costs', platform:'Facebook, landlord/investor interest targeting', audience:'Owners currently paying for management, cost-sensitive',
-    creative:'Before/after repair photo, or a text-forward graphic built around Katherine S.\'s quote (with her permission to use it in an ad).',
-    grounding:'Direct line from Katherine S.\'s testimonial: "Their maintenance estimates are significantly lower than my prior property managers."',
-    mockA:'var(--good)', mockB:'var(--deep)'},
-  {id:'local-person', headline:'Meet the Person Who\'ll Actually Manage Your Property',
-    body:'No call centers. No rotating account reps. Just a local team that knows St. Louis rentals and treats your property like it\'s the only one we manage.',
-    cta:'Talk to a Local Manager', platform:'Instagram + Facebook, hyper-local St. Louis/St. Charles geo targeting', audience:'Owners tired of large/impersonal management companies',
-    creative:'Real photo or short video of the team on-site at a property — needs your dad to supply footage.',
-    grounding:'Scott W.\'s testimonial names Brandon directly and contrasts him with a prior company where "nobody there had a name."',
-    mockA:'var(--accent)', mockB:'var(--brass)'},
-  {id:'quiz', headline:'Take 60 Seconds: Is It Time to Switch Property Managers?',
-    body:'Answer a few quick questions about communication, maintenance costs, and vacancy time. If it looks like it\'s time for a change, we\'ll send your free rental analysis.',
-    cta:'Start the 60-Second Check', platform:'Facebook Lead Ad (native in-platform form)', audience:'Owners not actively searching, but open to the idea',
-    creative:'Simple quiz-style creative: checklist icon, progress bar, no video needed.',
-    grounding:'Combines every pain point found in this research (communication, cost, vacancy) into one qualifying format — no local competitor is running anything like this.',
-    mockA:'var(--warn)', mockB:'var(--accent)'},
-];
+let COMPETITORS = [];
+let IDEAS = [];
+let META = {};
 
 let db = null, shortlist = {};
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -384,14 +330,17 @@ function statIcon(path){
   return `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="${path}"/></svg>`;
 }
 
-const STATS = [
-  {icon:'M11 4a7 7 0 100 14 7 7 0 000-14zM21 21l-4.3-4.3', value:5, label:'Competitors researched'},
-  {icon:'M9 18h6M10 21h4M12 3a6 6 0 00-3.6 10.8c.4.3.6.8.6 1.3V16h6v-.9c0-.5.2-1 .6-1.3A6 6 0 0012 3z', value:5, label:'Ad concepts ready'},
-  {icon:'M4 13h6V4H4v9zM14 20h6V4h-6v16zM4 20h6v-4H4v4z', display:'1 / 4', label:'Local competitors running any Meta ads'},
-  {icon:'M4 10h16v10H4zM8 10V7a4 4 0 018 0v3', value:0, label:'Live campaigns — accounts not set up yet'},
-];
+function buildStats(){
+  return [
+    {icon:'M11 4a7 7 0 100 14 7 7 0 000-14zM21 21l-4.3-4.3', value:COMPETITORS.length, label:'Competitors researched'},
+    {icon:'M9 18h6M10 21h4M12 3a6 6 0 00-3.6 10.8c.4.3.6.8.6 1.3V16h6v-.9c0-.5.2-1 .6-1.3A6 6 0 0012 3z', value:IDEAS.length, label:'Ad concepts ready'},
+    {icon:'M4 13h6V4H4v9zM14 20h6V4h-6v16zM4 20h6v-4H4v4z', display:META.localAdsRatio || '—', label:META.localAdsLabel || 'Local competitors running any Meta ads'},
+    {icon:'M4 10h16v10H4zM8 10V7a4 4 0 018 0v3', value:META.liveCampaigns || 0, label:META.liveCampaignsLabel || 'Live campaigns'},
+  ];
+}
 
 function renderStats(){
+  const STATS = buildStats();
   document.getElementById('stat-row').innerHTML = STATS.map((s,i) => `
     <div class="stat-tile">
       <div class="stat-icon">${statIcon(s.icon)}</div>
@@ -573,13 +522,39 @@ function initStarfield(){
   window.addEventListener('resize', ()=>{ resize(); makeStars(); if(reducedMotion) draw(0); });
 }
 
+async function loadData(){
+  const [competitors, ideas, meta] = await Promise.all([
+    fetch('data/competitors.json').then(r=>r.json()),
+    fetch('data/ideas.json').then(r=>r.json()),
+    fetch('data/meta.json').then(r=>r.json()),
+  ]);
+  COMPETITORS = competitors;
+  IDEAS = ideas;
+  META = meta;
+}
+
+function applyMeta(){
+  document.getElementById('phase-pill').textContent = '● ' + (META.phaseLabel || 'Phase 1 of 4');
+  document.getElementById('sidebar-foot').innerHTML =
+    `Full Scope Home Services · St. Louis, MO<br>Research current as of ${META.lastUpdated || '—'}`;
+}
+
 async function init(){
   renderNav();
+  initStarfield();
+  showSection('overview');
+
+  try{
+    await loadData();
+  }catch(e){
+    document.getElementById('stat-row').innerHTML =
+      '<div class="stat-tile"><div class="label">Couldn\'t load dashboard data — try refreshing.</div></div>';
+    return;
+  }
+  applyMeta();
   renderStats();
   renderCompetitors();
   renderIdeas();
-  initStarfield();
-  showSection('overview');
 
   try{
     db = await claude.use('db');

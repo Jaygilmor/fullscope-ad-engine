@@ -1,0 +1,10 @@
+{
+  "lastUpdated": "2026-09-11",
+  "localAdsRatio": "1 / 4",
+  "localAdsLabel": "Local competitors running any Meta ads",
+  "phase": 1,
+  "phaseLabel": "Phase 1 of 4",
+  "liveCampaigns": 0,
+  "liveCampaignsLabel": "Live campaigns — accounts not set up yet",
+  "notes": "Weekly automated research/draft refresh will update this file and the accompanying competitors.json / ideas.json. Manual edits here are fine between runs."
+}

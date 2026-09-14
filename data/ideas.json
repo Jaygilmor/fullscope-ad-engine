@@ -1,0 +1,62 @@
+[
+  {
+    "id": "responsive",
+    "headline": "Still Waiting on a Call Back From Your Property Manager?",
+    "body": "Full Scope Home Services answers — that's the whole pitch. Real people, real updates on repairs and applications, without you having to chase anyone down. Free rental analysis, no obligation.",
+    "cta": "Get My Free Rental Analysis",
+    "platform": "Facebook + Instagram",
+    "audience": "Owners currently frustrated with their existing property manager",
+    "creative": "Photo of the actual local manager (e.g. Brandon) mid-call, or a clean text graphic built around Scott W.'s review.",
+    "grounding": "Scott W.'s testimonial contrasts Full Scope directly with an \"impersonal\" prior manager — this is close to a direct quote.",
+    "mockA": "var(--accent)",
+    "mockB": "var(--deep)"
+  },
+  {
+    "id": "free-analysis",
+    "headline": "What Could Your Rental Actually Be Earning?",
+    "body": "Get a free, no-pressure rental analysis from a local St. Louis property manager. Find out what your property could rent for — and what it's really costing you to manage it yourself.",
+    "cta": "Get My Free Analysis",
+    "platform": "Facebook + Instagram, broad owner-interest targeting",
+    "audience": "Self-managing landlords and owners comparing PM companies",
+    "creative": "Clean exterior photo of a well-kept St. Louis-area rental, or a simple calculator/clipboard graphic.",
+    "grounding": "Matches the \"Free Rental Analysis\" CTA already live on fullscopehomes.com — the category-standard offer, confirmed by 4 of the 5 competitors researched.",
+    "mockA": "var(--brass)",
+    "mockB": "var(--deep)"
+  },
+  {
+    "id": "maintenance-cost",
+    "headline": "Your Property Manager Shouldn't Be a Profit Center for Contractors",
+    "body": "One owner told us her maintenance estimates dropped significantly the day she switched to us. We manage repairs like it's our own money — because keeping your property profitable is the actual job.",
+    "cta": "See How We Manage Costs",
+    "platform": "Facebook, landlord/investor interest targeting",
+    "audience": "Owners currently paying for management, cost-sensitive",
+    "creative": "Before/after repair photo, or a text-forward graphic built around Katherine S.'s quote (with her permission to use it in an ad).",
+    "grounding": "Direct line from Katherine S.'s testimonial: \"Their maintenance estimates are significantly lower than my prior property managers.\"",
+    "mockA": "var(--good)",
+    "mockB": "var(--deep)"
+  },
+  {
+    "id": "local-person",
+    "headline": "Meet the Person Who'll Actually Manage Your Property",
+    "body": "No call centers. No rotating account reps. Just a local team that knows St. Louis rentals and treats your property like it's the only one we manage.",
+    "cta": "Talk to a Local Manager",
+    "platform": "Instagram + Facebook, hyper-local St. Louis/St. Charles geo targeting",
+    "audience": "Owners tired of large/impersonal management companies",
+    "creative": "Real photo or short video of the team on-site at a property — needs your dad to supply footage.",
+    "grounding": "Scott W.'s testimonial names Brandon directly and contrasts him with a prior company where \"nobody there had a name.\"",
+    "mockA": "var(--accent)",
+    "mockB": "var(--brass)"
+  },
+  {
+    "id": "quiz",
+    "headline": "Take 60 Seconds: Is It Time to Switch Property Managers?",
+    "body": "Answer a few quick questions about communication, maintenance costs, and vacancy time. If it looks like it's time for a change, we'll send your free rental analysis.",
+    "cta": "Start the 60-Second Check",
+    "platform": "Facebook Lead Ad (native in-platform form)",
+    "audience": "Owners not actively searching, but open to the idea",
+    "creative": "Simple quiz-style creative: checklist icon, progress bar, no video needed.",
+    "grounding": "Combines every pain point found in this research (communication, cost, vacancy) into one qualifying format — no local competitor is running anything like this.",
+    "mockA": "var(--warn)",
+    "mockB": "var(--accent)"
+  }
+]

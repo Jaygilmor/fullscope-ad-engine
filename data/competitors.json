@@ -1,0 +1,47 @@
+[
+  {
+    "name": "West End Management &amp; Leasing",
+    "tags": ["20+ yrs", "St. Louis &amp; St. Charles"],
+    "body": "\"One of the largest\" PM companies in the metro. Pays-on-performance model (no fee until a tenant is approved). Leans hard on trust guarantees rather than price.",
+    "extra": "5 guarantees: Stress-Free Rent Pledge ($1,000 eviction cost coverage), Pet Damage Coverage, Price Match, Happiness Guarantee (cancel anytime), Fee Transparency Pledge.",
+    "ads": "No active Meta ads found (checked Sep 11, 2026).",
+    "src": "westendmgt.com",
+    "srcUrl": "https://www.westendmgt.com/"
+  },
+  {
+    "name": "Deca Property Management",
+    "tags": ["35 yrs", "A+ BBB"],
+    "body": "Dedicated team per owner (manager + assistant + field rep) and an in-house maintenance division (\"Aced Maintenance\"). Positions on scale and personal service at once.",
+    "extra": "3 guarantees: Lease Time Promise, Pet Damage Promise, Eviction Promise.",
+    "ads": "Actively running ~10 Meta/Instagram ads — every one is a vacant rental listing aimed at tenants. Zero landlord-acquisition ads.",
+    "src": "decarealty.com + Meta Ad Library",
+    "srcUrl": "https://www.decarealty.com/"
+  },
+  {
+    "name": "Eaton Properties",
+    "tags": ["Decades in STL/St. Charles", "98% occupancy claim"],
+    "body": "Tech-forward positioning: web portal for owners/tenants, electronic payments, online work orders. Frames the pitch as turning ownership into \"passive income.\"",
+    "extra": "No guarantee advertised. A Yelp review describes a months-long unresolved ceiling leak/water damage — directly at odds with the fast-response positioning.",
+    "ads": "No active Meta ads found under the business name (checked Sep 11, 2026).",
+    "src": "eatonproperties.com + Yelp",
+    "srcUrl": "https://www.eatonproperties.com/st-louis-property-management"
+  },
+  {
+    "name": "Homestretch Property Management",
+    "tags": ["Flat-rate fees", "Single point of contact"],
+    "body": "Pitches a flat-rate, \"no surprise fees\" structure and a single dedicated local manager as the point of contact. Lists on 30+ platforms for faster leasing.",
+    "extra": "No guarantee advertised. Offers a free rental analysis as their lead magnet — same convention Full Scope already uses.",
+    "ads": "Not checked yet in this pass — worth a follow-up.",
+    "src": "homestretchpropertymanagement.com",
+    "srcUrl": "https://homestretchpropertymanagement.com/"
+  },
+  {
+    "name": "Evernest (national)",
+    "tags": ["National roll-up", "Acquiring local PM firms"],
+    "body": "\"National Brand, Local People.\" A large, VC-backed national property management company actively acquiring independent local firms across the U.S. — a consolidation trend worth knowing about beyond just its ads.",
+    "extra": "3 guarantees: Maintenance Guarantee, Resident Eviction Guarantee (free re-lease), 100% Happiness Guarantee.",
+    "ads": "Ad Library search inconclusive — name collides with unrelated companies. Not conclusively checked.",
+    "src": "stlouispropertymanagement.co (Evernest STL)",
+    "srcUrl": "https://www.stlouispropertymanagement.co/"
+  }
+]
